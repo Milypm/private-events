@@ -1,0 +1,22 @@
+<div class="card mx-auto mb-3" style="width: 25rem;">
+  <div class="card-body pb-5 mt-2">
+    <h2>Sign up</h2>
+    <%= form_for @user do |f| %>
+      <br/>
+      <div class="field">
+        <% f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 20rem;", placeholder:"Username" %>
+      </div>
+      <div class="field">
+        <% f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", style:"width: 20rem;", placeholder:"Email" %>
+      </div>
+      <br/><br/>
+      <div class="actions">
+        <%= f.submit "Sign up", class:"btn btn-success" %>
+      </div>
+    <% end %>
+    <br/>
+    <!--<% link_to "Sign up", new_registration_path(resource_name) %><br />-->
+  </div>
+</div>
