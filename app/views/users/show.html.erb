@@ -1,29 +1,10 @@
-<div class="card mx-auto mb-3" style="width: 25rem;">
-  <div class="card-body pb-5 mt-2">
-    <h2>Log in</h2>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <% f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", style:"width: 20rem;", placeholder:"Name" %>
-      </div>
-      <div class="field">
-        <% f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", style:"width: 20rem;", placeholder:"Email" %>
-      </div>
-      <div class="field">
-        <% f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", style:"width: 20rem;", placeholder:"Password" %>
-      </div>
+
+<div class="container my-3 flex-column d-flex align-items-center">
+  <div class="card border" style="width: 50rem;">
+    <div class="card-body flex-column justify-content-center">
+      <p class="card-title fs-2">Hi, <%= current_user.username %>!</p><br/>
+      <p class="card-text flex-md-fill fs-4">Events Here...</p>
       <br/>
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-      <br/>
-    <% end %>
-    <br/>
-    
+    </div>
   </div>
 </div>
