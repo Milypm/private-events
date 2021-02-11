@@ -1,12 +1,12 @@
-<div class="card my-3 mx-auto" style="width: 60rem;">
-  <div class="card-body">
-    <h1>Hello!</h1>
-    <br/>
+<div class="card my-3 mx-auto d-flex flex-column align-items-center" style="width: 40rem;">
+  <div class="card-body text-center">
+    <h1>Hello!</h1><br/>
     <p class="fs-4">Welcome to Private-Events!<br/><br/>
-    Sign In to see all your events and invitations.<br/>
+    Sign In to see all your events and invitations.<br/><br/>
     <%= link_to "Sign In", '/login', method: :get, class:"btn btn-success mb-5" %><br/>
-    Don't have an account?
-    <%= link_to "Sign Up", new_user_path, method: :get, class:"btn btn-secondary btn-sm" %>
+    <br/><br/>
+    Don't have an account?<br/>
+    <%= link_to "Sign Up", '/users/new', method: :get, class:"btn btn-secondary btn-sm" %>
     </p>
     <br/>
   </div>
