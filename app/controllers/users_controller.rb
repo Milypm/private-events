@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -10,7 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to '/welcome', notice: 'Succesful Sign Up'
+      log_in @user
+      redirect_to root_path, notice: 'Succesful Sign Up'
     else
       render 'new'
     end

@@ -3,10 +3,10 @@
     <h1>Hello!</h1><br/>
     <p class="fs-4">Welcome to Private-Events!<br/><br/>
     Sign In to see all your events and invitations.<br/><br/>
-    <%= link_to "Sign In", '/login', method: :get, class:"btn btn-success mb-5" %><br/>
+    <%= link_to "Sign In", new_session_path, class:"btn btn-success mb-5" %><br/>
     <br/><br/>
     Don't have an account?<br/>
-    <%= link_to "Sign Up", '/users/new', method: :get, class:"btn btn-secondary btn-sm" %>
+    <%= link_to "Sign Up", new_user_path, class:"btn btn-secondary btn-sm" %>
     </p>
     <br/>
   </div>

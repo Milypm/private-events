@@ -1,7 +1,7 @@
 <div class="card mx-auto mb-3" style="width: 25rem;">
   <div class="card-body pb-5 mt-2">
     <h2>Log in</h2>
-    <%= form_for '/login' do |f| %>
+    <%= form_for('/login') do |f| %>
       <div class="field">
         <% f.label :username %><br />
         <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 20rem;", placeholder:"Username" %>
