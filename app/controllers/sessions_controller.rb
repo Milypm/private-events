@@ -13,7 +13,6 @@ class SessionsController < ApplicationController
       redirect_to '/welcome'
     else
       redirect_to '/login', notice: 'Invalid username'
-      # render new_user_url
     end
   end
 

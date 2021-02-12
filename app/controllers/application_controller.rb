@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :logged_in?
+  helper_method :log_out
   
   def log_in(user)
     session[:user_id] = user.id
@@ -10,16 +11,12 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
 
-  def current_user?(user)
-    user == current_user
-  end
-
   def logged_in?
     !current_user.nil?
   end
 
   def log_out
-    session.delete(:user_id)
-    @current_user = nil
+    reset_session
+    current_user = nil
   end
 end

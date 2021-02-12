@@ -1,6 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light mb-0" style="background-color: #aec2b6;">
   <div class="container-fluid">
-    <%= link_to 'private-events!', root_path, class:"navbar-brand fs-3 fw-bold" %>
-    
+    <%= link_to 'private-events!', root_path, class:"navbar-brand fs-5 fw-bold" %>
+    <ul class="navbar-nav mb-2 mb-lg-0">
+      <div class="d-flex">
+        <%= navcheck_signed_in %>
+      </div>
+    </ul>
   </div>
 </nav>
