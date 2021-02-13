@@ -1,11 +1,15 @@
 <div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border d-flex flex-column align-items-center" style="width: 50rem;">
-    <div class="card-body d-flex flex-column align-items-center">
+  <div class="card border d-flex flex-column align-items-center mt-3" style="width: 50rem; height: 15rem;">
+    <div class="card-body mt-2">
       <h1 class="card-title fs-2">Welcome, <%= welcome_logged_user %>!</h1>
       <br/>
-      <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
-      <br/><br/><br/>
-      <%= link_to 'Go To Events', events_path, class:"btn btn-success" %>
+      <div class="d-flex flex-column" style="height: 5rem;">
+        <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
+        <br/><br/>
+        <%= link_to 'Go To My Events', user_path(current_user.id), class:"btn btn-success mt-3" %>
+        <br/><br/>
+        <%= link_to 'Go To All Events', events_path, class:"btn btn-success mt-3" %>
+      </div>
       <br/>
       <br/>
     </div>

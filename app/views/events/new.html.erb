@@ -1,16 +1,18 @@
-<div class="card mx-auto mb-3" style="width: 25rem;">
-  <div class="card-body pb-5 mt-2">
-    <h2>Create an Event</h2>
-    <%= form_with model: @event do |f| %>
-      <div class="field">
-        <% f.label :description %><br />
-        <%= f.text_field :description, style:"width: 20rem;", placeholder:"Event's Description" %>
-      </div>
+<div class="container mt-3 flex-column d-flex align-items-center">
+  <div class="card border d-flex flex-column align-items-center" style="width: 50rem;">
+    <div class="card-body text-center pb-5 my-2">
+      <h2>Create an Event</h2>
+      <%= form_with model: @event do |f| %>
+        <div class="field">
+          <% f.label :description %><br />
+          <%= f.text_field :description, style:"width: 30rem;", placeholder:"Event's Description" %>
+        </div>
+        <br/>
+        <div class="actions">
+          <%= f.submit "Create!", class:"btn btn-success" %>
+        </div>
+      <% end %>
       <br/>
-      <div class="actions">
-        <%= f.submit "Create!", class:"btn btn-success" %>
-      </div>
-    <% end %>
-    <br/>
+    </div>
   </div>
 </div>

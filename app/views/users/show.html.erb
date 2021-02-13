@@ -1,8 +1,20 @@
 <div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border" style="width: 50rem;">
-    <div class="card-body flex-column justify-content-center">
-      <p class="card-title fs-2">Events of: <%= current_user.creator_id %></p><br/>
-      <p class="card-text flex-md-fill fs-4">Events Here...</p>
+  <div class="card border d-flex flex-column align-items-center" style="width: 50rem;">
+    <div class="card-body text-center mt-3">
+      <h1 class="card-title fs-2">Welcome, <%= welcome_logged_user %>!</h1>
+      <br/>
+      <div class="d-flex flex-column" style="height: auto;">
+        <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
+        <br/><br/>
+        <%= link_to 'Go To All Events', events_path, class:"btn btn-success mt-3" %>
+      </div>
+      <br/><br/><br/>
+      <h2>My Events</h2><br/>
+      <p class="card-text flex-md-fill fs-4">
+        <% current_user.created_events.each do |event|%>
+          <%= event.description %><br/> 
+        <%end%>
+      </p>
       <br/>
     </div>
   </div>

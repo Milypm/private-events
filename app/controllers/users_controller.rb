@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
   end
 
   def new
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      redirect_to '/welcome', notice: 'Succesful Sign Up'
+      redirect_to user_path(current_user.id), notice: 'Succesful Sign Up'
     else
       render 'new'
     end
