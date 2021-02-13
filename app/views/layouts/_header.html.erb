@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <%= link_to 'private-events!', root_path, class:"navbar-brand fs-5 fw-bold" %>
     <ul class="navbar-nav mb-2 mb-lg-0">
-      <div class="d-flex">
+      <div class="d-flex justify-content-end" style="width: 15rem;">
+        <%= navcheck_create_event %>
         <%= navcheck_signed_in %>
       </div>
     </ul>

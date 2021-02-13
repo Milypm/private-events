@@ -1,12 +1,11 @@
 <div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border" style="width: 50rem;">
-    <div class="card-body flex-column justify-content-center">
+  <div class="card border d-flex flex-column align-items-center" style="width: 50rem;">
+    <div class="card-body d-flex flex-column align-items-center">
       <h1 class="card-title fs-2">Welcome, <%= welcome_logged_user %>!</h1>
       <br/>
-      <br/>
-      <%= link_to 'Go To Events', events_path, class:"btn btn-success" %>
-      <br/>
       <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
+      <br/><br/><br/>
+      <%= link_to 'Go To Events', events_path, class:"btn btn-success" %>
       <br/>
       <br/>
     </div>
