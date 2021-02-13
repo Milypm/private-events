@@ -1,8 +1,12 @@
 <div class="container my-3 flex-column d-flex align-items-center">
   <div class="card border" style="width: 50rem;">
     <div class="card-body flex-column justify-content-center">
-      <p class="card-title fs-2">Events of: <%= current_user.creator_id %></p><br/>
-      <p class="card-text flex-md-fill fs-4">Events Here...</p>
+      <h1 class="card-title fs-2">Events</h1>
+      <br/>
+      <p class="card-text flex-md-fill fs-4">
+        <% index %>
+      </p>
+      <br/>
       <br/>
     </div>
   </div>

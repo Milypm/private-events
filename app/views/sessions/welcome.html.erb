@@ -3,7 +3,10 @@
     <div class="card-body flex-column justify-content-center">
       <h1 class="card-title fs-2">Welcome, <%= welcome_logged_user %>!</h1>
       <br/>
-      <p class="card-text flex-md-fill fs-4">Events...</p>
+      <br/>
+      <%= link_to 'Go To Events', events_path, class:"btn btn-success" %>
+      <br/>
+      <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
       <br/>
       <br/>
     </div>
