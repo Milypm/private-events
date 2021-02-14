@@ -1,8 +1,23 @@
 <div class="container my-3 flex-column d-flex align-items-center">
   <div class="card border" style="width: 50rem;">
     <div class="card-body flex-column justify-content-center">
-      <p class="card-title fs-2">Events of: <%= current_user.creator_id %></p><br/>
-      <p class="card-text flex-md-fill fs-4">Events Here...</p>
+      <p class="card-title fs-2">Created by <%= find_creator.username %></p><br/>
+      <p class="card-text flex-md-fill fs-4">
+      Description...
+      <br/>
+      <br/>
+      Do you want to attend this event?, enter your username below:<br/>
+      <%= form_with model: @event_attending do |f| %>
+      <div class="field">
+        <% f.label :username %>
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 20rem;", placeholder:"Username" %>
+      </div>
+      <br/>
+      <div class="actions">
+        <%= f.submit "Save", class:"btn btn-success" %>
+      </div>
+    <% end %>
+      </p>
       <br/>
     </div>
   </div>

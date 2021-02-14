@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :events
+  resources :event_attendings
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
