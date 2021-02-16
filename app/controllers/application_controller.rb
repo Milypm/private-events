@@ -20,8 +20,4 @@ class ApplicationController < ActionController::Base
     reset_session
     current_user = nil
   end
-
-  def find_creator
-    User.find(Event.find_by(id: params[:id]).creator_id)
-  end
 end
