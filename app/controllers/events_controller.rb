@@ -11,18 +11,16 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.created_events.build(event_params)
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created' }
-      else
-        format.html { render :new }
-      end
+    if @event.save
+      redirect_to @event, notice: 'Event was successfully created'
+    else
+      render :new
     end
   end
 
   def show
-    # @find_event = Event.find(params[:id]).creator_id
-    # @creator = User.find(@find_event)
+    @find_event = Event.find(params[:id]).creator_id
+    @creator = User.find(@find_event)
   end
 
   private
