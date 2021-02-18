@@ -1,23 +1,32 @@
 <div class="container my-3 flex-column d-flex align-items-center">
   <div class="card border" style="width: 50rem;">
     <div class="card-body flex-column justify-content-center">
-      <p class="card-title fs-2">Created by <%= @creator.username %></p><br/>
+      <div class="d-flex justify-content-between">
+        <p class="card-title fs-2">Created by <%= @event.creator.username %></p>
+        <%= form_with(model: @event_attending, method: :post) do |form| %>
+          <div class="field form-group visually-hidden">
+            <%= form.number_field :attended_event_id, value: @event.id, class: 'form-control'%>
+          </div>
+          <div class="field form-group visually-hidden">
+            <%= form.number_field :event_attendee_id, value: current_user.id, class: 'form-control' if current_user %>
+          </div>
+          <div class="actions">
+            <%= button_to 'Attend Event', attend_event_path(@ev_attending), method: :post, class:"btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
       <p class="card-text flex-md-fill fs-4">
-      Description...
+      <%= @event.description %>
       <br/>
       <br/>
-      Do you want to attend this event?, enter your username below:<br/>
-      <%= form_with model: @event_attending do |f| %>
-      <div class="field">
-        <% f.label :username %>
-        <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 20rem;", placeholder:"Username" %>
+      <div class="text-center">
+        <p class="card-title fs-2">Attendees<br/>
+        <% @event.attendees.each do |attendee| %>
+          <p class="card-text flex-md-fill fs-4"><%= attendee.id %>. <%= attendee.username %></p>
+          <br/><br/>
+        <% end %>
+        </p>
       </div>
-      <br/>
-      <div class="actions">
-        <%= f.submit "Save", class:"btn btn-success" %>
-      </div>
-    <% end %>
-      </p>
       <br/>
     </div>
   </div>

@@ -2,17 +2,14 @@ class EventAttendingsController < ApplicationController
   def index
   end
 
-  def new
-    @ev_attending = EventAttending.new
+  def create
+    @ev_attending = EventAttending.create(event_attending_params)
+    if @ev_attending.save
+      redirect_to events_path(event_attending_params[:attended_event_id]), notice: 'Your attendance to this event is confirmed'
+    end
   end
 
-  def create
-    @ev_attending = EventAttending.new(event_attending_params)
-    if @ev_attending.save
-      redirect_to event_path(event_attending_params[:attended_event_id]), notice: 'Your attendance to this event is confirmed'
-    else
-      render: 'new'
-    end
+  def attend_event
   end
 
   def show

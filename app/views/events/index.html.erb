@@ -4,11 +4,11 @@
       <h1 class="card-title text-center fs-2">Events</h1>
       <br/>
       <p class="card-text flex-md-fill fs-4">
-        <% @events.each do |event|%>
+        <% @events.each do |event| %>
           <%= event.description %>
-          <%= link_to 'Details', event_path(Event.find_by(params[:id])), class:"btn btn-success btn-sm" %>
+          <%= link_to 'Details', event_path(event), class:"btn btn-success btn-sm" %>
           <br/><br/>
-        <%end%>
+        <% end %>
       </p>
       <br/>
       <br/>

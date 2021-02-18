@@ -10,11 +10,24 @@
       </div>
       <br/><br/><br/>
       <h2>My Events</h2><br/>
-      <p class="card-text flex-md-fill fs-4">
-        <% current_user.created_events.each do |event|%>
-          <%= event.description %><br/> 
-        <%end%>
-      </p>
+      <div class="d-flex justify-content-between border" style="width: 35rem;">
+        <div class="d-flex flex-column flex-nowrap m-0 border">
+          <p class="fs-4 border">Created</p>
+          <p class="fs-5">
+            <% current_user.created_events.each do |event|%>
+              <%= event.description %><br/> 
+            <%end%>
+          </p>
+        </div>
+        <div class="d-flex flex-column flex-nowrap m-0 border">
+          <p class="fs-4 border">Attending</p>
+          <p class="fs-5">
+            <% current_user.attended_events.each do |event|%>
+              <%= event.description %><br/> 
+            <%end%>
+          </p>
+        </div>
+      </div>
       <br/>
     </div>
   </div>
