@@ -1,33 +1,26 @@
 <div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border" style="width: 50rem;">
+  <div class="card border p-4" style="width: 50rem;">
     <div class="card-body flex-column justify-content-center">
       <div class="d-flex justify-content-between">
-        <p class="card-title fs-2">Created by <%= @event.creator.username %></p>
-        <%= form_with(model: @event_attending, method: :post) do |form| %>
-          <div class="field form-group visually-hidden">
-            <%= form.number_field :attended_event_id, value: @event.id, class: 'form-control'%>
-          </div>
-          <div class="field form-group visually-hidden">
-            <%= form.number_field :event_attendee_id, value: current_user.id, class: 'form-control' if current_user %>
-          </div>
-          <div class="actions">
-            <%= button_to 'Attend Event', attend_event_path(@ev_attending), method: :post, class:"btn btn-success" %>
-          </div>
-        <% end %>
+        <p class="card-title fs-4"><span class="fw-bold">Host: </span><%= @event.creator.username %></p>
+        <%= attend_btn %>
       </div>
-      <p class="card-text flex-md-fill fs-4">
-      <%= @event.description %>
+      <div style="width: 33rem;">
+        <p class="card-text flex-md-fill fs-5">
+        <%= @event.description %><br/>
+        <span class="fw-bold">When: </span><%= @event.date.strftime("%B - %d - %Y at %I:%M%p") %><br/>
+        <span class="fw-bold">Location: </span><%= @event.location %></p>
+      </div>
       <br/>
       <br/>
-      <div class="text-center">
-        <p class="card-title fs-2">Attendees<br/>
+      <div class="">
+        <p class="card-title fs-2">Attendees</p><br/>
         <% @event.attendees.each do |attendee| %>
           <p class="card-text flex-md-fill fs-4"><%= attendee.id %>. <%= attendee.username %></p>
-          <br/><br/>
+          <br/>
         <% end %>
         </p>
       </div>
-      <br/>
     </div>
   </div>
 </div>

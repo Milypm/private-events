@@ -1,15 +1,9 @@
 class EventAttendingsController < ApplicationController
-  def index
-  end
-
   def create
-    @ev_attending = EventAttending.create(event_attending_params)
+    @ev_attending = EventAttending.new(event_params)
     if @ev_attending.save
-      redirect_to events_path(event_attending_params[:attended_event_id]), notice: 'Your attendance to this event is confirmed'
+      redirect_to events_path, notice: 'Your attendance to this event is confirmed'
     end
-  end
-
-  def attend_event
   end
 
   def show
@@ -17,7 +11,7 @@ class EventAttendingsController < ApplicationController
 
   private
 
-  def event_attending_params
-    params.require(:event_attending).permit(:attended_event_id, :event_attendee_id)
+  def event_params 
+    { attended_event_id: params[:attended_event_id], event_attendee_id: params[:event_attendee_id] }
   end
 end
