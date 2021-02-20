@@ -1,11 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light mb-0" style="background-color: #a7dbaf;">
   <div class="container-fluid">
-    <%= navcheck_main %>
-    <ul class="navbar-nav mb-2 mb-lg-0">
-      <div class="d-flex justify-content-end" style="width: 15rem;">
+    <div class="d-flex align-items-center">
+      <%= navcheck_main %>
+      <h6 class="color-light mt-2 p-0"><%= link_to navcheck_user %></h6>
+    </div>
+    <div class="navbar-nav mb-2 mb-lg-0">
+      <div class="d-flex justify-content-around" style="width: 20rem;">
+        <%= navcheck_allevents %>
         <%= navcheck_create_event %>
         <%= navcheck_signed_in %>
       </div>
-    </ul>
+    </div>
   </div>
 </nav>

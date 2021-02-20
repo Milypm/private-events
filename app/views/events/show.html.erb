@@ -13,13 +13,11 @@
       </div>
       <br/>
       <br/>
-      <div class="">
-        <p class="card-title fs-2">Attendees</p><br/>
+      <div class="card-body">
+        <p class="fs-4">Attendees</p>
         <% @event.attendees.each do |attendee| %>
-          <p class="card-text flex-md-fill fs-4"><%= attendee.id %>. <%= attendee.username %></p>
-          <br/>
+          <p class="card-text fs-5 mb-1"><%= attendee.username %></p>
         <% end %>
-        </p>
       </div>
     </div>
   </div>

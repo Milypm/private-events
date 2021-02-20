@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   helper_method :log_out
   helper_method :find_creator
-  
+
   def log_in(user)
     session[:user_id] = user.id
   end
