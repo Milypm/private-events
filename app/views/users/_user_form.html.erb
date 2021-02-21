@@ -1,0 +1,11 @@
+<%= form_with model: @user do |f| %>
+  <br/>
+  <div class="field">
+    <% f.label :username %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 15rem;", placeholder:"Username" %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit which_button, class:"btn btn-success" %>
+  </div>
+<% end %>

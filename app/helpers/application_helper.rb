@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def navcheck_user
-    link_to welcome_logged_user, user_path(current_user.id), class:"btn btn-outline-success py-0 px-2 fw-bold" if logged_in?
+    "Hi, #{current_user.username}!" if logged_in?
   end
 
   def navcheck_sign_inbtn

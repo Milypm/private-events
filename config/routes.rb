@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post 'logout', to: 'sessions#destroy'
 
   post 'attend_event', to: 'event_attendings#create'
+  delete 'cancel_event_attending', to: 'event_attendings#destroy'
 end

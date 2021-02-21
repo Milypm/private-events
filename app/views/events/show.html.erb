@@ -1,24 +1,40 @@
-<div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border p-4" style="width: 50rem;">
-    <div class="card-body flex-column justify-content-center">
-      <div class="d-flex justify-content-between">
-        <p class="card-title fs-4"><span class="fw-bold">Host: </span><%= @event.creator.username %></p>
-        <%= attend_btn_host %>
-      </div>
-      <div style="width: 33rem;">
-        <p class="card-text flex-md-fill fs-5">
-        <%= @event.description %><br/>
-        <span class="fw-bold">When: </span><%= @event.date.strftime("%B - %d - %Y at %I:%M%p") %><br/>
-        <span class="fw-bold">Location: </span><%= @event.location %></p>
-      </div>
-      <br/>
-      <br/>
-      <div class="card-body">
-        <p class="fs-4">Attendees</p>
-        <% @event.attendees.each do |attendee| %>
-          <p class="card-text fs-5 mb-1"><%= attendee.username %></p>
-        <% end %>
+<div class="container d-flex flex-column">
+  <div class="d-flex">
+    <div class="border border-success rounded-3 border-3 py-1 px-3 mb-2" style="width: 45rem;">
+      <div class="card-body flex-column justify-content-center">
+        <div class="d-flex justify-content-between">
+          <h3 class="card-title text-success fw-bold"><%= @event.description %></h3>
+          <%= attend_btn_host %>
+        </div>
+        <div style="width: 33rem;">
+          <p class="card-text flex-md-fill fs-5">
+          <span class="fw-bold">Host: </span><%= @event.creator.username %><br/>
+          <span class="fw-bold">When: </span><%= @event.date.strftime("%B - %d - %Y at %I:%M%p") %><br/>
+          <span class="fw-bold">Location: </span><%= @event.location %></p>
+        </div>
       </div>
     </div>
+    <table class="table table-borderless border border-5 mx-auto" style="width: 15rem;">
+     <thead>
+       <tr class="bg-success">
+         <th><h4 class="text-center text-white fw-bolder">Attendees</h4></th>
+       </tr>
+     </thead>
+     <tbody>
+       <% @event.attendees.each do |attendee| %>
+         <tr>
+           <td class="d-flex flex-column align-items-center">
+             <p class="fs-4 mb-1 text-success fw-bold"><%= attendee.username %></p>
+           </td>
+         </tr>
+       <% end %>
+     </tbody>
+    </table>
+  </div>
+  <div class="d-flex justify-content-between" style="width: 15rem;">
+    <%= link_to 'Back', events_path, class: 'btn btn-secondary my-3' %>
+    <%= link_to 'Edit Event', edit_event_path(@event), class: 'btn btn-secondary my-3' if current_user == @user %>
+    <%= link_to 'Destroy Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' if current_user == @user %>
   </div>
 </div>
+

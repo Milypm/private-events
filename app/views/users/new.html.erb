@@ -1,18 +1,9 @@
 <div class="card mx-auto mb-3" style="width: 25rem;">
   <div class="card-body pb-5 mt-2">
     <h2>Sign up</h2>
-    <%= form_for @user do |f| %>
-      <br/>
-      <div class="field">
-        <% f.label :username %><br />
-        <%= f.text_field :username, autofocus: true, autocomplete: "username", style:"width: 20rem;", placeholder:"Username" %>
-      </div>
-      <br/><br/>
-      <div class="actions">
-        <%= f.submit "Sign up", class:"btn btn-success" %>
-      </div>
-    <% end %>
+    <%= render 'user_form', user: @user %>
     <br/>
-    
+    <h3 class="text-primary">Are you registered?</h3>
+    <%= link_to "Sign In", login_path, method: :get, class: 'btn btn-success' %>
   </div>
 </div>

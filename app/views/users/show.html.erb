@@ -1,32 +1,64 @@
-<div class="container my-3 flex-column d-flex align-items-center">
-  <div class="card border d-flex flex-column align-items-center" style="width: 50rem;">
-    <div class="card-body text-center mt-3 d-flex flex-column align-items-center">
-      <h1 class="card-title fs-2">Welcome!</h1>
-      <br/>
-      <div class="d-flex justify-content-between mt-2 mb-4" style="width: 19rem;">
-        <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
+<div class="container d-flex mx-auto">
+  <div class="d-flex flex-column align-items-start">
+    <div class="border border-success rounded-3 border-3 pb-2 d-flex flex-column align-items-center" style="width: 30rem;">
+      <div class="card-body text-center d-flex flex-column align-items-center">
+        <h1 class="card-title fs-2">Welcome!</h1>
         <br/>
-        <%= link_to 'Go To All Events', events_path, class:"btn btn-success" %>
-      </div>
-      <br/>
-      <div class="mt-4">
-        <h3>My Events</h3>
-        <div class="d-flex justify-content-around border" style="width: 40rem;">
-          <div class="d-flex flex-column align-items-start border" style="width: 18rem;">
-            <p class="fs-4">Attended</p>
-            <% current_user.attended_events.each do |event| %>
-              <%= attended_past(event) %><br/> <!-- helper method to check for past events -->
-            <% end %> 
-          </div>
-          <div class="d-flex flex-column align-items-start border" style="width: 18rem;">
-            <p class="fs-4">Upcoming</p>
-            <% current_user.attended_events.each do |event| %>
-              <%= attended_future(event) %><br/> <!-- helper method to check for future events -->
-            <% end %>  
-          </div>
+        <div class="d-flex justify-content-between mb-0 pb-2 mt-2" style="width: 19rem;">
+          <%= link_to 'Create an Event', new_event_path, class:"btn btn-success" %>
+          <%= link_to 'Go To All Events', events_path, class:"btn btn-success" %>
         </div>
       </div>
-      <br/>
+    </div>
+    <div class="d-flex justify-content-between mt-3" style="width: 18rem;">
+      <%= link_to 'Back', users_path, class: 'btn btn-secondary my-3' %>
+      <%= link_to 'Edit User', edit_user_path(@user), class: 'btn btn-secondary my-3'if current_user == @user %>
+      <%= link_to 'Destroy User', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' if current_user == @user %>
     </div>
   </div>
+  <table class="table table-borderless border border-5 mx-auto" style="width: 25rem;">
+    <thead>
+      <tr class="bg-success">
+        <th><h4 class="text-center text-white fw-bolder">My Events</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-secondary text-center">
+        <th><h5 class="text-dark fw-bolder">Upcoming</h5></th>
+      </tr>
+      <% current_user.attended_events.each do |event| %>
+        <tr>
+          <% if event.date > Time.current %>
+            <td class="d-flex justify-content-between">
+              <p class="fs-4 fw-bold my-0 text-success mb-1"><%= event.description %>
+            </td> <!-- helper method to check for future events -->
+            <td class="d-flex justify-content-between">
+              <p class="my-0"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp<%= event.location %>
+            </td> <!-- helper method to check for future events -->
+            <td class="d-flex justify-content-between">
+              <p class="mt-0"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;<%= event.date %>
+            </td> <!-- helper method to check for future events -->
+          <% end %>
+        </tr>
+      <% end %>
+      <tr class="table-secondary text-center">
+        <th><h5 class="text-dark fw-bolder">Attended</h5></th>
+      </tr> 
+      <% current_user.attended_events.each do |event| %>
+        <tr>
+          <% if event.date < Time.current %>
+            <td class="d-flex justify-content-between">
+              <p class="fs-4 fw-bold my-0 text-success mb-1"><%= event.description %>
+            </td> <!-- helper method to check for future events -->
+            <td class="d-flex justify-content-between">
+              <p class="my-0"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp<%= event.location %>
+            </td> <!-- helper method to check for future events -->
+            <td class="d-flex justify-content-between">
+              <p class="mt-0"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;<%= event.date %>
+            </td> <!-- helper method to check for future events -->
+          <% end %>
+        </tr>
+      <% end %>  
+    </tbody>
+  </table>
 </div>
