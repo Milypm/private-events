@@ -2,14 +2,14 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center">
       <%= navcheck_main %>
-      <h6 class="color-light mt-2 p-0"><%= link_to navcheck_user %></h6>
+      <h6 class="color-light mt-2 p-0"><%= navcheck_user %></h6>
     </div>
     <div class="navbar-nav mb-2 mb-lg-0">
-      <div class="d-flex justify-content-around" style="width: 20rem;">
-        <%= navcheck_allevents %>
-        <%= navcheck_create_event %>
-        <%= navcheck_signed_in %>
-      </div>
+      <% if logged_in? %>
+        <%= render 'layouts/nav_signout' %>
+      <% else %>
+        <%= render 'layouts/nav_signin' %>
+      <% end %>
     </div>
   </div>
 </nav>

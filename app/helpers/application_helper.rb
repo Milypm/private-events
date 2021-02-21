@@ -12,15 +12,15 @@ module ApplicationHelper
   end
 
   def navcheck_user
-    "Hi, #{welcome_logged_user, user_path(current_user.id)}", class:"btn btn-outline-success py-0 px-2 fw-bold" if logged_in?
+    link_to welcome_logged_user, user_path(current_user.id), class:"btn btn-outline-success py-0 px-2 fw-bold" if logged_in?
   end
 
-  def navcheck_signed_in
-    if logged_in?
-      link_to 'Sign Out', logout_path, method: :post, class:"nav-link fw-bold"
-    else
-      link_to 'Sign In', login_path, class:"nav-link btn btn-outline-success fw-bold"
-    end
+  def navcheck_sign_inbtn
+    link_to 'Sign In', login_path, class:"nav-link btn btn-outline-success fw-bold" unless logged_in?
+  end
+
+  def navcheck_sign_outbtn
+    link_to 'Sign Out', logout_path, method: :post, class:"nav-link fw-bold" if logged_in?
   end
 
   def navcheck_create_event
