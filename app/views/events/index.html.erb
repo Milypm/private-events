@@ -1,50 +1,54 @@
-<div class="container pb-5">
-  <table class="table table-borderless border border-5 mx-auto" style="width: 45rem;">
+<div class="container pb-5 mt-3">
+  <table class="table table-borderless border border-5 mx-auto" style="width: 40rem;">
     <thead>
       <tr class="bg-success">
-        <th><h3 class="fs-2 text-center text-white fw-bolder">Events</h3></th>
+        <th><h2 class="mt-1 mb-0 text-center text-white fw-bolder">Events</h2></th>
       </tr>
     </thead>
     <tbody>
       <tr class="table-secondary text-center">
         <th><h5 class="fs-4 text-dark fw-bolder">Upcoming</h5></th>
-      </tr>    
-      <% @events.each do |event| %>
-        <tr>
-          <% if event.date > Time.current %>
-            <td class="d-flex justify-content-between">
+      </tr>
+      <% if @events.empty? %>
+        <tr class="text-center">
+          <td><p class="fs-5 text-dark">No events to show :(</p></td>
+        </tr>
+      <% else %>    
+        <% @events.future.each do |event| %>
+          <tr>          
+            <td class="d-flex justify-content-between mb-2">
               <div class="d-flex flex-column fs-5 align-items-start">
-                <p class="fs-4 fw-bold my-0 text-success mb-1"></i><%= event.description %></p>
-                <p class="my-0"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;<%= event.location %></p>
-                <p class="mt-0"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;<%= event.date.strftime("%B - %d - %Y at %I:%M%p") %></p>
+                <p class="fs-4 ml-1 fw-bold my-0 text-success"><%= event.description %></p>          
               </div>
               <div class="d-flex align-items-start">
                 <h5 class=""><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
                 <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
               </div>
-            </td>
-          <% end %>
-        </tr>
+            </td>          
+          </tr>
+        <% end %>
       <% end %>
       <tr class="table-secondary text-center">
         <th><h5 class="fs-4 text-dark fw-bolder">Previous</h5></th>
       </tr>
-      <% @events.each do |event| %>
-        <tr>
-          <% if event.date < Time.current %>
-            <td class="d-flex justify-content-between">
+      <% if @events.empty? %>
+        <tr class="text-center">
+          <td><p class="fs-5 text-dark">No events to show :(</p></td>
+        </tr>
+      <% else %> 
+        <% @events.past.each do |event| %>
+          <tr>       
+            <td class="d-flex justify-content-between mb-2">
               <div class="d-flex flex-column fs-5 align-items-start">
-                <p class="fs-4 fw-bold my-0 text-success mb-1"></i><%= event.description %></p>
-                <p class="my-0"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;<%= event.location %></p>
-                <p class="mt-0"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;<%= event.date.strftime("%B - %d - %Y at %I:%M%p") %></p>
+                <p class="fs-4 fw-bold my-0 text-success"><s><%= event.description %></s></p>
               </div>
               <div class="d-flex align-items-start">
                 <h5 class=""><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
                 <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
               </div>
             </td>
-          <% end %>
-        </tr>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

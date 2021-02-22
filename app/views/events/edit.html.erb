@@ -1,11 +1,9 @@
-<div class="container mt-3 flex-column d-flex align-items-center">
-  <div class="card border p-4 d-flex flex-column align-items-center" style="width: 50rem;">
-    <div class="card-body text-center pb-5 my-2">
+<div class="container my-3 flex-column d-flex align-items-center">
+  <div class="border border-success rounded-3 border-4 d-flex flex-column align-items-center" style="width: 50rem;">
+    <div class="card-body text-center my-2">
       <h2>Edit Event</h2>
       <%= render 'event_form', event: @event %>
-      <br/>
     </div>
-    <%= link_to 'See Event', @event, class: 'btn btn-success mb-3' %>
-    <%= link_to 'Back', events_path, class: 'btn btn-success mb-3' %>
+    <%= link_to 'Back', events_path, class: 'mt-0 btn btn-secondary mb-4' %>
   </div>
 </div>

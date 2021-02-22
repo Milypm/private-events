@@ -1,4 +1,4 @@
-<%= form_with model: @event do |f| %>
+<%= form_with(model: event) do |f| %>
   <div class="field">
     <% f.label :description %><br />
     <%= f.text_field :description, style:"width: 30rem;", placeholder:"Description" %>
@@ -13,6 +13,6 @@
   </div>
   <br/>
   <div class="actions">
-    <%= f.submit "Create!", class:"btn btn-success" %>
+    <%= f.submit class:"btn btn-success" %>
   </div>
 <% end %>

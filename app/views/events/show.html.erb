@@ -1,40 +1,44 @@
-<div class="container d-flex flex-column">
-  <div class="d-flex">
+<div class="container d-flex justify-content-between">
+  <div class="d-flex flex-column sticky-top">
     <div class="border border-success rounded-3 border-3 py-1 px-3 mb-2" style="width: 45rem;">
       <div class="card-body flex-column justify-content-center">
         <div class="d-flex justify-content-between">
           <h3 class="card-title text-success fw-bold"><%= @event.description %></h3>
-          <%= attend_btn_host %>
+          <%= attend_btn %> <!-- helper method to check if a user is already attending the event -->
         </div>
         <div style="width: 33rem;">
           <p class="card-text flex-md-fill fs-5">
           <span class="fw-bold">Host: </span><%= @event.creator.username %><br/>
-          <span class="fw-bold">When: </span><%= @event.date.strftime("%B - %d - %Y at %I:%M%p") %><br/>
+          <span class="fw-bold">When: </span><%= @event.date.strftime("%B %d %Y, at %I:%M%p") %><br/>
           <span class="fw-bold">Location: </span><%= @event.location %></p>
         </div>
       </div>
     </div>
-    <table class="table table-borderless border border-5 mx-auto" style="width: 15rem;">
-     <thead>
-       <tr class="bg-success">
-         <th><h4 class="text-center text-white fw-bolder">Attendees</h4></th>
-       </tr>
-     </thead>
-     <tbody>
-       <% @event.attendees.each do |attendee| %>
-         <tr>
-           <td class="d-flex flex-column align-items-center">
-             <p class="fs-4 mb-1 text-success fw-bold"><%= attendee.username %></p>
-           </td>
-         </tr>
-       <% end %>
-     </tbody>
-    </table>
+    <div class="d-flex justify-content-between mt-2" style="width: 12rem;">
+      <%= link_to 'Back', events_path, class: 'btn btn-secondary my-3' %>
+    </div>
   </div>
-  <div class="d-flex justify-content-between" style="width: 15rem;">
-    <%= link_to 'Back', events_path, class: 'btn btn-secondary my-3' %>
-    <%= link_to 'Edit Event', edit_event_path(@event), class: 'btn btn-secondary my-3' if current_user == @user %>
-    <%= link_to 'Destroy Event', @event, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' if current_user == @user %>
-  </div>
+  <table class="table table-borderless border border-5" style="width: 20rem;">
+    <thead>
+      <tr class="bg-success">
+        <th><h4 class="text-center text-white fw-bolder mt-1 mb-0">Attendees</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @event.attendees.empty? %>
+        <tr class="text-center">
+          <td><p class="fs-5 text-dark mb-0">No attendees to show :(</p></td>
+        </tr>
+      <% else %> 
+        <% @event.attendees.each do |attendee| %>
+          <tr>
+            <td class="d-flex justify-content-center">
+            <p class="fs-4 mb-1 text-success fw-bold"><%= attendee.username %></p>&nbsp;&nbsp;<i class="fas fa-check text-success mt-2 fs-5"></i>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 

@@ -22,9 +22,4 @@ module UsersHelper
   def attended_future_w(event)
     event.date if event.date > Time.current
   end
-
-  def which_button
-    'Sign Up' unless logged_in?
-    'Confirm'
-  end
 end

@@ -5,14 +5,14 @@ module ApplicationHelper
 
   def navcheck_main
     if logged_in?
-      link_to 'private-events!', user_path(current_user.id), class:"navbar-brand fs-5 fw-bold"
+      link_to 'private-events!', user_path(current_user.id), class:"navbar-brand fs-4 fw-bold text-success"
     else
-      link_to 'private-events!', root_path, class:"navbar-brand fs-5 fw-bold"
+      link_to 'private-events!', root_path, class:"navbar-brand fs-4 fw-bold text-success"
     end
   end
 
   def navcheck_user
-    "Hi, #{current_user.username}!" if logged_in?
+    "Hi, #{current_user.username} :)" if logged_in?
   end
 
   def navcheck_sign_inbtn
@@ -29,5 +29,9 @@ module ApplicationHelper
 
   def navcheck_allevents
     link_to 'Events', events_path, class:"btn btn-outline-success my-1" if logged_in?
+  end
+
+  def alerts
+    render 'layouts/alerts' if notice
   end
 end
