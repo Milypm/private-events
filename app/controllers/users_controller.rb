@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
+
   def index
     @users = User.all.order(:username)
   end
 
   def show
-    @user = User.find_by_id(params[:id])
   end
   
   def new
@@ -21,6 +22,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+  
+  def update
+    if @user.update(user_params)
+      redirect_to @user, notice: 'Username was succesfully updated.'
+    else
+      render 'edit'
+    end 
+  end
+
   def destroy
     reset_session if @user == current_user
     current_user.destroy
@@ -31,5 +43,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end

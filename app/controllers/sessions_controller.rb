@@ -9,15 +9,15 @@ class SessionsController < ApplicationController
     user = User.find_by_username(params[:login][:username])
     if user
       log_in(user)
-      redirect_to user_path(current_user.id), notice: 'Succesfully Signed In'
+      redirect_to user_path(current_user.id), notice: 'Succesfully Signed In.'
     else
-      redirect_to '/login', notice: 'Invalid username, try again with a valid username'
+      redirect_to '/login', notice: 'Invalid username, try again with a valid username.'
     end
   end
 
   def destroy
     log_out
-    redirect_to root_path, notice: 'Succesfully Signed Out'
+    redirect_to root_path, notice: 'Succesfully Signed Out.'
   end
 
   private

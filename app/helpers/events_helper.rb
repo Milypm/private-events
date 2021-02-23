@@ -1,6 +1,6 @@
 module EventsHelper
   def badge(event)
-    'Host' if event.creator_id == current_user.id
+    'Creator' if event.creator_id == current_user.id
   end
 
   def attend_btn
@@ -13,6 +13,12 @@ module EventsHelper
       else
         attend_btn
       end
+    end
+  end
+
+  def unattend_btn
+    if EventAttending.exists?(attended_event_id: @event.id, event_attendee_id: current_user.id)
+      button_to 'Unattend Event', cancel_event_attending_path(@event.id), params: { attended_event_id: @event.id, event_attendee_id: current_user.id }, method: :delete, class:"btn btn-outline-secondary btn-sm mt-2" 
     end
   end
 end

@@ -21,7 +21,7 @@
                 <p class="fs-4 ml-1 fw-bold my-0 text-success"><%= event.description %></p>          
               </div>
               <div class="d-flex align-items-start">
-                <h5 class=""><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
+                <h5><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
                 <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
               </div>
             </td>          
@@ -40,10 +40,10 @@
           <tr>       
             <td class="d-flex justify-content-between mb-2">
               <div class="d-flex flex-column fs-5 align-items-start">
-                <p class="fs-4 fw-bold my-0 text-success"><s><%= event.description %></s></p>
+                <p class="fs-4 fw-bold my-0 text-secondary"><s><%= event.description %></s></p>
               </div>
               <div class="d-flex align-items-start">
-                <h5 class=""><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
+                <h5><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
                 <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
               </div>
             </td>

@@ -4,7 +4,10 @@
       <div class="card-body flex-column justify-content-center">
         <div class="d-flex justify-content-between">
           <h3 class="card-title text-success fw-bold"><%= @event.description %></h3>
-          <%= attend_btn %> <!-- helper method to check if a user is already attending the event -->
+          <div class="d-flex flex-column align-items-end">
+            <%= attend_btn %> <!-- helper method to check if a user is already attending the event -->
+            <%= unattend_btn %>
+          </div>
         </div>
         <div style="width: 33rem;">
           <p class="card-text flex-md-fill fs-5">
@@ -14,8 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="d-flex justify-content-between mt-2" style="width: 12rem;">
+    <div class="d-flex justify-content-between mt-2" style="width: 20rem;">
       <%= link_to 'Back', events_path, class: 'btn btn-secondary my-3' %>
+      <%= link_to 'Edit Event', edit_event_path(@event), class: 'btn btn-secondary my-3' %>
+      <%= link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger my-3' %>
     </div>
   </div>
   <table class="table table-borderless border border-5" style="width: 20rem;">
