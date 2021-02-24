@@ -22,9 +22,9 @@ module EventsHelper
     return unless EventAttending.exists?(attended_event_id: @event.id, event_attendee_id: current_user.id)
 
     button_to 'Unattend Event', cancel_event_attending_path(@event.id),
-               params: {
-                 attended_event_id: @event.id,
-                 event_attendee_id: current_user.id
-               }, method: :delete, class: 'btn btn-outline-secondary btn-sm mt-2'
+              params: {
+                attended_event_id: @event.id,
+                event_attendee_id: current_user.id
+              }, method: :delete, class: 'btn btn-outline-secondary btn-sm mt-2'
   end
 end
