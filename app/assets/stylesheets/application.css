@@ -16,17 +16,14 @@
 @font-face {
   font-family: 'comfortaa';
   src: url('Comnfortaa-VariableFont_wght.ttf');
-
   font-family: 'coustard';
   src: url('Coustard-Regular.ttf');
-
   font-family: 'coustard-bold';
   src: url('Coustard-Black.ttf');
-
   font-family: 'grandstander';
   src: url('Grandstander-VariableFont_wght.ttf');
 }
 
 body {
-  font-family: 'grandstander';
+  font-family: 'grandstander', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
