@@ -30,19 +30,7 @@
       </tr>
     </thead>
     <tbody>
-      <% if @event.attendees.empty? %>
-        <tr class="text-center">
-          <td><p class="fs-5 text-dark mb-0">No attendees to show :(</p></td>
-        </tr>
-      <% else %> 
-        <% @event.attendees.each do |attendee| %>
-          <tr>
-            <td class="d-flex justify-content-center">
-            <p class="fs-4 mb-1 text-success fw-bold"><%= attendee.username %></p>&nbsp;&nbsp;<i class="fas fa-check text-success mt-2 fs-5"></i>
-            </td>
-          </tr>
-        <% end %>
-      <% end %>
+      <%= attendings_show %>
     </tbody>
   </table>
 </div>

@@ -1,0 +1,44 @@
+<tr class="table-secondary text-center">
+  <th><h5 class="fs-4 mt-1 mb-0 text-dark fw-bolder">Upcoming</h5></th>
+</tr>
+<% @upcoming_events.each do |event| %>
+  <tr class="d-flex flex-column align-items-center text-center mt-2">    
+    <td class="m-1 p-1">
+      <div class="d-flex align-items-start justify-content-end">
+        <h4 class="fs-3 fw-bold my-0 text-success">
+          <%= link_to event.description, event_path(event), class:"btn btn-outline-success fs-4 rounded-pill border-2 fw-bold text-decoration-none" %>
+        </h4>
+        <h6><span class="badge bg-primary"><%= badge(event) %></span></h6>
+      </div>
+    </td> <!-- helper method to check for future events -->
+    <td class="m-0 p-1">
+      <p class="my-0 fs-5"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp;<%= event.location %></p>
+    </td> <!-- helper method to check for future events -->
+    <td class="m-0 p-1">
+      <p class="mt-0 fs-5"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;
+        <%= event.date.strftime("%B %d %Y, at %I:%M%p") %>
+      </p>
+    </td> <!-- helper method to check for future events -->      
+  </tr>
+<% end %>
+<tr class="table-secondary text-center">
+  <th><h5 class="fs-4 mt-1 mb-0 text-dark fw-bolder">Previous</h5></th>
+</tr>
+<% @past_events.each do |event| %>
+  <tr class="d-flex flex-column align-items-center text-center mt-2">
+    <td class="m-1 p-1">
+      <div class="d-flex align-items-start justify-content-end">
+        <h4 class="fs-3 fw-bold my-0 text-success">
+          <%= link_to event.description, event_path(event), class:"btn btn-outline-secondary fs-4 rounded-pill border-2 fw-bold text-decoration-line-through" %>
+        </h4>
+        <h6><span class="badge bg-primary"><%= badge(event) %></span></h6>
+      </div>
+    </td> <!-- helper method to check for past events -->
+    <td class="m-0 p-1">
+      <p class="my-0 fs-5"><i class="fas fa-map-marker-alt text-success"></i>&nbsp;&nbsp<%= event.location %>
+    </td> <!-- helper method to check for past events -->
+    <td class="m-0 p-1">
+      <p class="mt-0 fs-5"><i class="far fa-calendar-alt text-success"></i>&nbsp;&nbsp;<%= event.date.strftime("%B %d %Y, at %I:%M%p") %>
+    </td> <!-- helper method to check for past events -->
+  </tr>
+<% end %>

@@ -1,25 +1,13 @@
 module UsersHelper
-  def attended_past_d(event)
-    event.description if event.date < Time.current
+  def users_attended_events
+    render 'users/users_events_empty' if @attended_events.empty?
+
+    render 'users/users_show_events'
   end
 
-  def attended_future_d(event)
-    event.description if event.date > Time.current
-  end
+  def users_created_events
+    render 'users/users_events_empty' if @created_events.empty?
 
-  def attended_past_l(event)
-    event.location if event.date < Time.current
-  end
-
-  def attended_future_l(event)
-    event.location if event.date > Time.current
-  end
-
-  def attended_past_w(event)
-    event.date if event.date < Time.current
-  end
-
-  def attended_future_w(event)
-    event.date if event.date > Time.current
+    render 'users/users_created_events'
   end
 end

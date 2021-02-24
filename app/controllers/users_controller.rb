@@ -5,7 +5,12 @@ class UsersController < ApplicationController
     @users = User.all.order(:username)
   end
 
-  def show; end
+  def show
+    @attended_events = current_user.attended_events
+    @created_events = current_user.created_events
+    @past_events = current_user.attended_events.past
+    @upcoming_events = current_user.attended_events.future
+  end
 
   def new
     @user = User.new

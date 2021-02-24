@@ -27,4 +27,10 @@ module EventsHelper
                 event_attendee_id: current_user.id
               }, method: :delete, class: 'btn btn-outline-secondary btn-sm mt-2'
   end
+
+  def events_show
+    render 'events/events_empty' if @events.empty?
+
+    render 'events/events_show_all'
+  end
 end

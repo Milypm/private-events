@@ -1,0 +1,32 @@
+<tr class="table-secondary text-center">
+  <th><h5 class="fs-4 text-dark fw-bolder">Upcoming</h5></th>
+</tr>
+<% @upcoming_events.each do |event| %>
+  <tr>          
+    <td class="d-flex justify-content-between mb-2">
+      <div class="d-flex flex-column fs-5 align-items-start">
+        <p class="fs-4 ml-1 fw-bold my-0 text-success"><%= event.description %></p>          
+      </div>
+      <div class="d-flex align-items-start">
+        <h5><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
+        <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
+      </div>
+    </td>          
+  </tr>
+<% end %>
+<tr class="table-secondary text-center">
+  <th><h5 class="fs-4 text-dark fw-bolder">Previous</h5></th>
+</tr>
+<% @past_events.each do |event| %>
+  <tr>          
+    <td class="d-flex justify-content-between mb-2">
+      <div class="d-flex flex-column fs-5 align-items-start">
+        <p class="fs-4 ml-1 fw-bold my-0 text-success"><%= event.description %></p>          
+      </div>
+      <div class="d-flex align-items-start">
+        <h5><span class="badge bg-secondary"><%= badge(event) %></span></h5>&nbsp;&nbsp;
+        <%= link_to 'Details', event_path(event), class:"btn btn-primary btn-sm fw-bold" %>
+      </div>
+    </td>          
+  </tr>
+<% end %>

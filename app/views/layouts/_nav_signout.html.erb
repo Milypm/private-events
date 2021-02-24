@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-around" style="width: 20rem;">
-  <%= navcheck_allevents %>
-  <%= navcheck_create_event %>
-  <%= navcheck_sign_outbtn %>
+  <%= link_to 'Events', events_path, class: 'btn btn-outline-success my-1' %>
+  <%= link_to 'Create an Event', new_event_path, class: 'btn btn-outline-success my-1' %>
+  <%= link_to 'Sign Out', logout_path, method: :post, class: 'nav-link fw-bold' %>
 </div>

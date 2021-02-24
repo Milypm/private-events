@@ -5,11 +5,7 @@
       <h5 class="color-light mt-2 p-0 fst-italic"><%= navcheck_user %></h5>
     </div>
     <div class="navbar-nav mb-2 mb-lg-0">
-      <% if logged_in? %>
-        <%= render 'layouts/nav_signout' %>
-      <% else %>
-        <%= render 'layouts/nav_signin' %>
-      <% end %>
+      <%= nav_signin_signout %>
     </div>
   </div>
 </nav>
