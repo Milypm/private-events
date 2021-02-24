@@ -49,5 +49,3 @@ Visit [issues' section](https://github.com/Milypm/private-events/issues)
 ## Show your support
 Give a :star2: if you like this project!
 
-## License
-<p>This project is <a href="../feature/LICENSE">MIT</a> licensed.</p>
