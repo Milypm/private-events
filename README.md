@@ -2,9 +2,9 @@
 # Building an application for registering users and creating events
 
 
-![img_1](./app/assets/images/img1.png)
-![img_2](./app/assets/images/img2.png)
-![img_3](./app/assets/images/img3.png)
+![img_1](./app/assets/app-images/img1.png)
+![img_2](./app/assets/app-images/img2.png)
+![img_3](./app/assets/app-images/img3.png)
 
 
 > I created a Ruby on Rails application for a site where users can create accounts (just with a username) and events, using ActiveRecord associations to create many to many relationships between the models.
