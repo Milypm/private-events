@@ -23,9 +23,6 @@
 - RSpec and Capybara for testing
 - Git
  
-## Setup
-- Run 'bundle install'
- 
 ## How to run it
 * It's recommended to use Git's latest version.
 * Clone or download the repo from here [private-events](https://github.com/Milypm/private-events.git) on your local system.
@@ -36,7 +33,11 @@
 - Migrate the database: 'rails db:migrate'.
 - Start the server: 'rails server' or 'rails s'.
 - Copy/open the path given to open the project in the browser: 'http://localhost:3000/'.
- 
+
+## Testing with RSpec / Capybara
+- On the command line, go to the application's root directory, and type: 'rspec'.
+- You now should see the tests outcome for unit and integration tests included in the '/spec' directory.
+
 ## Author
 **Mily Puente** :woman_technologist:
 - GitHub: [@Milypm](https://github.com/Milypm)
@@ -49,3 +50,5 @@ Visit [issues' section](https://github.com/Milypm/private-events/issues)
 ## Show your support
 Give a :star2: if you like this project!
 
+## License
+<p>This project is <a href="../feature/LICENSE">MIT</a> licensed.</p>
