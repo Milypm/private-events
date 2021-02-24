@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe 'events', type: :feature do
@@ -14,7 +12,7 @@ RSpec.describe 'events', type: :feature do
     click_button
   end
 
-  def set_date(datetime)
+  def setting_date(datetime)
     select datetime.strftime('%Y'), from: 'event_date_1i'
     select datetime.strftime('%B'), from: 'event_date_2i'
     select datetime.strftime('%-d'), from: 'event_date_3i'
@@ -28,7 +26,7 @@ RSpec.describe 'events', type: :feature do
       login(user)
       visit '/events/new'
       fill_in 'Description', with: event1.description
-      set_date event1.date
+      setting_date event1.date
       fill_in 'Location', with: event1.location
       click_button
       expect(page).to have_content event1.location

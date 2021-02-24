@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class EventAttendingsController < ApplicationController
   before_action :set_ev_attending, only: [:destroy]
 
