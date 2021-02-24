@@ -16,7 +16,7 @@
 - A user can attend multiple events, and unattend them.
 
 ## Built With
-- Ruby (v. 2.6.5)
+- Ruby (v. 2.7.2 / 3.0.0)
 - Ruby on Rails (v. 6.1.1)
 - HTML / CSS (Bootstrap)
 - Rubocop
