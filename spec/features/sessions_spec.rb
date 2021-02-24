@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'sessions', :type => :feature do
+RSpec.describe 'sessions', type: :feature do
   let(:user) { User.create(username: 'Richard') }
 
   def login(user)

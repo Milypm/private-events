@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe EventAttending, :type => :model do
+require 'rails_helper'
+
+RSpec.describe EventAttending, type: :model do
   context 'association' do
     it 'belong to event_attendee' do
       assc = EventAttending.reflect_on_association(:event_attendee)

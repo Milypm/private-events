@@ -1,10 +1,10 @@
-class SessionsController < ApplicationController
-  def new
-  end
+# frozen_string_literal: true
 
-  def show
-  end
-  
+class SessionsController < ApplicationController
+  def new; end
+
+  def show; end
+
   def create
     user = User.find_by_username(params[:login][:username])
     if user

@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-RSpec.describe Event, :type => :model do
+require 'rails_helper'
+
+RSpec.describe Event, type: :model do
   context 'validation' do
     it 'is invalid if description value is not a string' do
       new_event = Event.new(description: '', date: Date.today, location: 'Friend house').save

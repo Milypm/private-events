@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'users', :type => :feature do
+RSpec.describe 'users', type: :feature do
   let(:user) { User.create(username: 'Richard') }
   let(:event) { Event.new(creator_id: user.id, description: 'Pool Party', date: DateTime.current) }
   let(:attended_event) { EventAttending.new(attended_event_id: event.id, event_attendee_id: user.id) }
-  
+
   describe 'sign up process' do
     it 'signs me up' do
       visit '/users/new'
@@ -21,7 +23,7 @@ RSpec.describe 'users', :type => :feature do
   end
 
   context 'views:' do
-    it "displays events attended by the user on their show page" do
+    it 'displays events attended by the user on their show page' do
       user.save
       login(user)
       event.save

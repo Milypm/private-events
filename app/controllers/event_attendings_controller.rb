@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 class EventAttendingsController < ApplicationController
   before_action :set_ev_attending, only: [:destroy]
 
   def create
     @ev_attending = EventAttending.new(event_params)
-    if @ev_attending.save
-      redirect_to user_path(current_user.id), notice: 'Your attendance to this event is confirmed.'
-    end
+    redirect_to user_path(current_user.id), notice: 'Your attendance to this event is confirmed.' if @ev_attending.save
   end
 
   def destroy
@@ -15,7 +15,7 @@ class EventAttendingsController < ApplicationController
 
   private
 
-  def event_params 
+  def event_params
     { attended_event_id: params[:attended_event_id], event_attendee_id: params[:event_attendee_id] }
   end
 

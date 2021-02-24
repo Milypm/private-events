@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe 'events', :type => :feature do
+RSpec.describe 'events', type: :feature do
   let(:user) { User.create(username: 'Richard') }
   let(:event1) { Event.new(creator_id: user.id, description: 'Pool Party', date: DateTime.current) }
   let(:event2) { Event.new(creator_id: user.id, description: 'RoR CodingCamp', date: DateTime.tomorrow) }
   let(:attended_event) { EventAttending.create(attended_event_id: event1.id, event_attendee_id: user.id) }
-  
+
   def login(user)
     visit '/login'
     fill_in 'Username', with: user.username
@@ -32,7 +34,7 @@ RSpec.describe 'events', :type => :feature do
       expect(page).to have_content event1.location
     end
 
-    it "displays events created by the user on events/index page" do
+    it 'displays events created by the user on events/index page' do
       user.save
       login(user)
       event1.save

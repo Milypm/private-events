@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module UsersHelper
   def attended_past_d(event)
     event.description if event.date < Time.current
