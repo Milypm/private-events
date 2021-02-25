@@ -1,0 +1,9 @@
+<div class="container my-3 flex-column d-flex align-items-center">
+  <div class="border border-success rounded-3 border-4 d-flex flex-column align-items-center" style="width: 50rem;">
+    <div class="card-body text-center my-2">
+      <h2>Edit Event</h2>
+      <%= render 'event_form', event: @event %>
+    </div>
+    <%= link_to 'Back', event_url, class: 'mt-0 btn btn-secondary mb-4' %>
+  </div>
+</div>
