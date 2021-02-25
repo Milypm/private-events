@@ -33,4 +33,15 @@ module EventsHelper
 
     render 'events/events_show_all'
   end
+
+  def events_edit_btn
+    link_to 'Edit Event', edit_event_path(@event), class: 'btn btn-secondary my-3' if current_user == @event.creator
+  end
+
+  def events_delete_btn
+    if current_user == @event.creator
+      link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' },
+                                                  class: 'btn btn-danger my-3'
+    end
+  end
 end
