@@ -39,9 +39,9 @@ module EventsHelper
   end
 
   def events_delete_btn
-    if current_user == @event.creator
-      link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' },
-                                                  class: 'btn btn-danger my-3'
-    end
+    return unless current_user == @event.creator
+
+    link_to 'Delete Event', event_path(@event), method: :delete, data: { confirm: 'Are you sure?' },
+                                                class: 'btn btn-danger my-3'
   end
 end
